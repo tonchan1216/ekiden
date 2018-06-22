@@ -254,3 +254,7 @@ $posts = array_reverse($posts);                  // 配列の中身を逆順に
 
 <article></article> <!-- 独立した記事のセクション -->
 
+<text>Hello Hashida!</text>
+
+
+
