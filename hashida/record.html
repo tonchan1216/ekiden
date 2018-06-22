@@ -1,0 +1,222 @@
+<!-- コメントアウト -->
+<!DOCTYPE> <!-- ドキュメントタイプの宣言の時に使う　-->
+<html lang="ja"> <!-- htmlの文書であるという宣言 -->
+
+<head> <!-- ヘッダ情報 -->
+	<meta> <!-- 文書に関する情報 -->
+	<meta name ="author" content="tech togics"><!-- さ作者名を 「 tech logics 」 にする-->
+	<meta name="description" content="ホームページ作成やWEBの基本といえばHTML"> <!-- サイトの説明を記述 -->
+	<meta name="keywords" content="tech logics,html,css"> <!-- キーワードを記述 -->
+	<meta name="generator" content="Sublime Text"> <!-- ページを作成した際に使用したソフトウェア名を記述 -->
+	<meta http-equiv="content-type" charset="utf-8"><!-- 文字化け防止 -->  
+	<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS"> <!-- 使用される文字コードを指定 -->
+	<meta http-equiv="Content-Style-Type" content="text/css"> <!-- 使用されるスタイルシート言語を指定 -->
+	<meta http-equiv="Content-Script-Type" content="text/javascript"> <!-- 使用されるスクリプト言語を指定 -->
+	<meta http-equiv="refresh" content="25"> <!-- 指定した秒数後にページをリロードさせることができる ５秒後-->
+
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<link rel="stylesheet" href="css/box.css" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+	<!-- <script type="text/javascript" src=“js/timer.js"></script> -->
+	<!-- <script type="text/javascript" src="js/example.js"></script> -->
+	<script type="text/javascript" language="javascript">
+		function onButtonClick() {
+			target = document.getimeementById("output");
+			target.innerText = document.forms.id_form1.id_textBox1.value;
+          //target.innerText = document.id_form1.id_textBox1.value;//これでもOK
+      }
+  </script>
+</head>
+
+
+<title>練習記録</title>
+
+
+
+<header>
+	<div class="bg-white py-2">
+		<div class="container text-center text-primary">
+			<h2>2018年度 加藤研駅伝公式ページ</h2>
+		</div>
+	</div>
+
+
+	<nav class="navbar navbar-expand-sm navbar-dark bg-primary">	<!--スクロールしたらナビバーだけ上部に固定されるようにしたい-->
+		<div class="container collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				
+				<li class="nav-item px-2">
+					<a class="nav-link" href="index.html">HOME</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link" href="record.html">練習記録</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link" href="picture.html">ニュース</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+
+<body>
+
+
+
+
+
+    <!-- <form name="form1" id="id_form1" action="">
+      <input name="textBox1" id="id_textBox1" type="text" value="" />
+      <input type="button" value="Exec" onclick="onButtonClick();" />
+    </form>
+    <hr/> -->
+
+    <div class="container-fluid title">
+    	<h2 class="text-primary" style="font-size:50px; background:url(images/header.jpg) no-repeat center; overflow:hidden; white-space:nowrap; background-size: cover; padding-top:140px">練習記録</h2>
+    	<hr>
+    </div>
+
+    <form action="" method="_POST" class="py-3">
+    	<div>
+    		<label>日付:</label>
+    		<input type="date" name="date" id="date">
+    	</div>
+    	<div>
+    		<label>名前:</label>
+    		<input type="text" name="name" id="name">
+    	</div>
+    	<div>
+    		<label>コース:</label>
+    		<select name="cource">
+    			<option>青葉台</option>
+    			<option>河原</option>
+    			<option>城址</option>
+    			<option>その他</option>
+    		</select>
+    	</div>
+    	<div>
+    		<label>タイム:</label>
+    		<input type="number" name="minutes" id="minutes">分
+    		<input type="number" name="seconds" id="seconds">秒
+    	</div>
+    	<div>
+    		<input type="submit" id="add_button" value="記録を追加">
+    	</div>
+    </form>
+
+
+
+
+
+    <!-- <div id="box" style="width:200px;height:200px;background:red;"></div> -->
+
+    <!-- <div id="output"></div> -->
+
+    <div class="inner">
+    	<dl class="newlist1">
+    		<dt>2018/05/17</dt>
+    		<dd>川本雄一：14:59</dd>
+    		<dt>2018/05/22</dt>
+    		<dd>加藤健太：15:00</dd>
+    		<dt>2018/05/22</dt>
+    		<dd>周毅博　：15:31</dd>
+    		<dt>2018/05/22</dt>
+    		<dd>亀井大樹：15:53</dd>
+    		<dt>2018/05/22</dt>
+    		<dd>三橋拓斗：15:57</dd>
+    		<dt id="output1"></dt>
+    		<dd id="output2"></dd>
+    	</dl>
+    </div>
+
+<!--
+
+     		<input type="text" id="name" value="Helloooo"> 
+    <select id="members" name="members">
+    	<option>Shu</option>
+    	<option>Tohn</option>
+    	<option>Kamei</option>
+    	<option>Masaki</option>
+    </select>
+    <button id="add">Add!</button>
+
+    <p><a href="http://google.com">Google</a></p>
+
+</div>
+
+-->
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+
+	$(function(){
+
+        //今日の日付データを変数hidukeに格納
+        var hiduke = new Date(); 
+        //年・月・日・曜日を取得する
+        var year = hiduke.getFullYear();
+        var month = hiduke.getMonth() + 1;
+        var week = hiduke.getDay();
+        var day = hiduke.getDate();
+
+        // focus, blur
+        // change
+        $('#name')
+        .focus(function(){
+        	$(this).css('background', 'yellow')
+        })
+        .blur(function(){
+        	$(this).css('background', 'white')
+        });
+        $('#members').change(function(){
+        	alert('changed !!!')
+        });
+
+        // ボタンが押されるたびに<p>要素が動的に作られていく。。。
+        // クリックイベントを設定
+        // <dt>2018/05/17</dt>
+        // <dd>河本雄一：14:59</dd>
+        $('button' + '#add').click(function(){
+          // var p = $('<p>').text('vanish!').addClass('vanish');
+          // $(this).after(p)
+          var dt = $('<dt>').text('2018/05/17').addClass('data');
+          var dd = $('<dd>').text('河本雄一：14:59').addClass('name&time');
+          $(this).after(dd)
+          $(this).after(dt)
+      })
+        // 再度クリックで消えるようにする。onメソッドを使おう...
+        // 動的に色々いじりたい時に"onメソッド"は必須ンゴ。。。
+        $('body').on('click', '.vanish', function(){
+        	$(this).remove();
+        });
+
+        // Ajax(中級者向け)
+        // Asynchronous JavaScript + XML
+        // サーバと通信 + ページ(の一部)書き換え
+        // Dotinstallの”完了”ボタン＋Yahooトップの”ニュース”切替とか
+
+
+        $("p > input"+"#greet").click(function(){
+        	$.get('greet.php', {
+        		name: $('#name').val()
+        	}, function(data){
+        		var dt = $('<dt>').text(year+'/'+month+'/'+day).addClass('data');
+        		var dd = $('<dd>').text(data.message).addClass('name&time');
+        		$('.newlist1 > dd:eq(-1)').after(dt);
+        		$('.newlist1 > dt:eq(-1)').after(dd);
+            // $('#output1').html(year+'/'+month+'/'+day);
+            // $('#output2').html(data.message);
+        });
+        });
+
+        $("button" + "#more").click(function(){
+        	$("#result").load("more.html")
+        })
+
+    });
+</script>
+
+</body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000">

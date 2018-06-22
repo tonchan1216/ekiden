@@ -1,0 +1,93 @@
+<!-- コメントアウト -->
+<!DOCTYPE> <!-- ドキュメントタイプの宣言の時に使う　-->
+<html lang="ja"> <!-- htmlの文書であるという宣言 -->
+
+<head> <!-- ヘッダ情報 -->
+	<meta> <!-- 文書に関する情報 -->
+	<meta name ="author" content="tech togics"><!-- さ作者名を 「 tech logics 」 にする-->
+	<meta name="description" content="ホームページ作成やWEBの基本といえばHTML"> <!-- サイトの説明を記述 -->
+	<meta name="keywords" content="tech logics,html,css"> <!-- キーワードを記述 -->
+	<meta name="generator" content="Sublime Text"> <!-- ページを作成した際に使用したソフトウェア名を記述 -->
+	<meta http-equiv="content-type" charset="utf-8"><!-- 文字化け防止 -->  
+	<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS"> <!-- 使用される文字コードを指定 -->
+	<meta http-equiv="Content-Style-Type" content="text/css"> <!-- 使用されるスタイルシート言語を指定 -->
+	<meta http-equiv="Content-Script-Type" content="text/javascript"> <!-- 使用されるスクリプト言語を指定 -->
+	<meta http-equiv="refresh" content="25"> <!-- 指定した秒数後にページをリロードさせることができる ５秒後-->
+
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<link rel="stylesheet" href="css/box.css" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+	<!-- <script type="text/javascript" src=“js/timer.js"></script> -->
+	<!-- <script type="text/javascript" src="js/example.js"></script> -->
+	<script type="text/javascript" language="javascript">
+		function onButtonClick() {
+			target = document.getimeementById("output");
+			target.innerText = document.forms.id_form1.id_textBox1.value;
+          //target.innerText = document.id_form1.id_textBox1.value;//これでもOK
+      }
+  </script>
+</head>
+
+
+<title>ニュース</title>
+
+
+<header>
+	<div class="bg-white py-2">
+		<div class="container text-center text-primary">
+			<h2 >2018年度 加藤研駅伝公式ページ</h2>
+		</div>
+	</div>
+
+
+	<nav class="navbar navbar-expand-sm navbar-dark bg-primary">	<!--スクロールしたらナビバーだけ上部に固定されるようにしたい-->
+		<div class="container collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item px-2">
+					<a class="nav-link" href="index.html">HOME</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link" href="record.html">練習記録</a>
+				</li>
+				<li class="nav-item px-2">
+					<a class="nav-link" href="picture.html">ニュース</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="container-fluid title">
+	<h2 class="text-primary" style="font-size:50px; background:url(images/header.jpg) no-repeat center; overflow:hidden; white-space:nowrap; background-size: cover; padding-top:140px; padding-bottom:25px ">ニュース</h2>
+	<hr>
+</div>
+
+
+<div class="container-fluid text-center py-3">
+	<div class="row bg-light">
+		<div class="col-md-6">
+			<dl>
+				<dt>2018/05/13</dt>
+				<dd>仙台ハーフマラソンに参加しました！</dd>
+				<div class="grid_box affi2">
+					<img src="images/pic2.jpg" alt="駅伝" style="width:300px; text-align:center"/>
+				</div>
+			</dl>
+		</div>
+
+		<div class="col-md-6">
+			<dl>
+				<dt>2018/04/18</dt>
+				<dd>新年度駅伝練習始動！！！</dd>
+				<img src="images/pic1.jpg" alt="駅伝" style="width:300px; text-align:center"/> 
+			</dl>
+			<div class="text-right py-1">
+				<a href="picture.html">以前のニュースはこちら</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
