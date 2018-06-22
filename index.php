@@ -65,117 +65,149 @@ $posts = array_reverse($posts);                  // 配列の中身を逆順に
 
 ?>
 
-<!DOCTYPE> <!-- ドキュメントタイプの宣言の時に使う -->
+<!DOCTYPE html> <!-- ドキュメントタイプの宣言の時に使う -->
 
 <html> <!-- htmlの文書であるという宣言 -->
 
 <head> <!-- ヘッダ情報 -->
-  <meta> <!-- 文書に関する情報 -->
   <meta name ="author" content="tech togics">
   <meta name="description" content="ホームページ作成やWEBの基本といえばHTML">
   <meta name="keywords" content="tech logics,html,css">
   <meta name="generator" content="Sublime Text">
-  <meta http-equiv="content-type" charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>KatoLab Ekiden</title>
+
   <!-- 指定した秒数後にページをリロードさせることができる X秒後-->
-  <meta http-equiv="refresh" content="60">
+  <!-- <meta http-equiv="refresh" content="60"> -->
 
-  <!-- ここでCSSを有効にする -->
-  <link rel="stylesheet" href="css/index.css" type="text/css">
-  <link rel="stylesheet" href="css/box.css" type="text/css">
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
 
-
-  <script type="text/javascript" language="javascript">
-        function onButtonClick() {
-          target = document.getElementById("output");
-          target.innerText = document.forms.id_form1.id_textBox1.value;
-        }
-  </script>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <!-- <link rel="stylesheet" href="css/box.css" type="text/css"> -->
+  <link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
 </head>
 
-<header>
-  <h1>加藤研駅伝公式ページ</h1>
-</header>
-
-
 <body>
-<div class="container clearfix">
+  <header>
+    <nav class="navbar navbar-inverse navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">加藤研駅伝</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <div class="grid12 first">
-      <h2>Count Down Timer</h2>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>加藤研駅伝公式ページ</h1>
+        <p>2018年度：電気系駅伝大会まであと、</p>
+        <div id="demo"></div>
+      </div>
+    </div>
 
-      <!-- Display the countdown timer in an element -->
-      <!-- timer.js を見ると分かるけど、ここのIDに紐づいて表示される感じになってる。 -->
-      <div id='olympic'>2018年度：電気系駅伝大会まであと、</div>
-      <h2 id="demo"></h2>
-     </div>
+  </header>
 
-    <!-- 左半分(グリッドデザイン) -->
-  <div class="grid6 first">
+  <div class="container">
+    <div class="row">
+      <!-- 左半分(グリッドデザイン) -->
+      <div class="col-sm-6">
+        <h2>簡易掲示板</h2>
+        <!-- ここでどういうアクションを取るかを規定 -->
+        <!-- 今回はデータを更新したいので "post" を使う -->
+        <!-- "もしフォームがPOSTされたら"ってのをPHP部分に作る -->
+        <form action="" method="post">
+          message: <input type="text" name="message">
+          user: <input type="text" name="user">
+          date: <input type="text" name="date">
 
-    <h2>簡易掲示板</h2>
-    <!-- ここでどういうアクションを取るかを規定 -->
-    <!-- 今回はデータを更新したいので "post" を使う -->
-    <!-- "もしフォームがPOSTされたら"ってのをPHP部分に作る -->
-    <form action="" method="post">
-      message: <input type="text" name="message">
-      user: <input type="text" name="user">
-      date: <input type="text" name="date">
+          <input type="submit" value="投稿">
+          <input type="hidden" name="token"
+           value="<?php echo h($_SESSION['token']); ?>">
+        </form>
 
-      <input type="submit" value="投稿">
-      <input type="hidden" name="token"
-       value="<?php echo h($_SESSION['token']); ?>">
-    </form>
+        <h2>投稿一覧(<?php echo count($posts); ?>件)</h2>
+        <ul>
+          <?php if (count($posts)) : ?>  <!-- $postがあるか：ある -->
+            <?php foreach ($posts as $post) : ?>
+            <!-- 読み込み時にタブ区切りになってる$postを分割 -->
+            <?php list($message,$user,$date,$postedAt) = explode("\t",$post); ?>
+              <li>
+                <dt> <?php echo h($date); ?> </dt>
+                <dd> <?php echo h($user); ?>：<?php echo h($message); ?> </dd>
+              </li>
+            <?php endforeach; ?>
+          <?php else : ?>                <!-- $postがあるか：ない -->
+            <li>まだ投稿はありません。</li>
+          <?php endif; ?>
+        </ul>
+      </div>
 
-    <h2>投稿一覧(<?php echo count($posts); ?>件)</h2>
-    <ul>
-      <?php if (count($posts)) : ?>  <!-- $postがあるか：ある -->
-        <?php foreach ($posts as $post) : ?>
-        <!-- 読み込み時にタブ区切りになってる$postを分割 -->
-        <?php list($message,$user,$date,$postedAt) = explode("\t",$post); ?>
-          <li>
-            <dt> <?php echo h($date); ?> </dt>
-            <dd> <?php echo h($user); ?>：<?php echo h($message); ?> </dd>
-          </li>
-        <?php endforeach; ?>
-      <?php else : ?>                <!-- $postがあるか：ない -->
-        <li>まだ投稿はありません。</li>
-      <?php endif; ?>
-    </ul>
+      <!-- 左半分(グリッドデザイン) -->
+      <div class="col-sm-6">
+        <h2>駅伝写真</h2>
+        <div class="inner">
+          <dl class="newlist">
+            <dt>2018/05/13</dt>
+            <dd>仙台ハーフマラソン
+              <div class="grid_box affi2"> <!--アフィリエイト(幅1280px以下の場合に表示)-->
+                <img src="images/pic2.jpg" alt="駅伝" style="width:300px; text-align:center"/>
+              </div>
+              <div class="grid_box"></div>
 
-  </div>
-
-
-    <!-- 左半分(グリッドデザイン) -->
-  <div class="grid6">
-    <h2>駅伝写真</h2>
-    <div class="inner">
-      <dl class="newlist">
-        <dt>2018/05/13</dt>
-        <dd>仙台ハーフマラソン
-          <div class="grid_box affi2"> <!--アフィリエイト(幅1280px以下の場合に表示)-->
-            <img src="images/pic2.jpg" alt="駅伝" style="width:300px; text-align:center"/> </div>
-          <div class="grid_box">
-
-        <dt>2018/04/18</dt>
-        <dd>新年度駅伝練習始動！！！
-          <div class="grid_box affi2"> <!--アフィリエイト(幅1280px以下の場合に表示)-->
-            <img src="images/pic1.jpg" alt="駅伝" style="width:300px; text-align:center"/> </div>
-          <div class="grid_box">
-        </dd>
-      </dl>
-      <div class="grid2 first">〜終わり〜</div>
+            <dt>2018/04/18</dt>
+            <dd>新年度駅伝練習始動！！！
+              <div class="grid_box affi2"> <!--アフィリエイト(幅1280px以下の場合に表示)-->
+                <img src="images/pic1.jpg" alt="駅伝" style="width:300px; text-align:center"/>
+              </div>
+              <div class="grid_box"></div>
+            </dd>
+          </dl>
+          <div class="grid2 first">〜終わり〜</div>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
 
-<!-- <script type="text/javascript" src="example1.js"></script> -->
-<script type="text/javascript" src="js/timer.js"></script>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+  </footer>
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/timer.js"></script>
   <script>
     $(function(){
 
@@ -243,8 +275,13 @@ $posts = array_reverse($posts);                  // 配列の中身を逆順に
 
     });
   </script>
+  <script type="text/javascript" language="javascript">
+        function onButtonClick() {
+          target = document.getElementById("output");
+          target.innerText = document.forms.id_form1.id_textBox1.value;
+        }
+  </script>
 
-</body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000">
 
 <p>
 
@@ -258,3 +295,4 @@ $posts = array_reverse($posts);                  // 配列の中身を逆順に
 
 
 
+</body>
