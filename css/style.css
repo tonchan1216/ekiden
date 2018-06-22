@@ -1,0 +1,47 @@
+body {
+  background-color: #ffffff;
+}
+
+nav.navbar {
+  margin-bottom: 0;
+}
+
+.jumbotron {
+  background:url("../images/pic2.jpg") center no-repeat;
+  background-size: cover;
+}
+
+.jumbotron > .container {
+  height: 100%;
+  background: rgba(255,255,255,0.7);
+}
+
+.yycountdown-box{
+  text-align:center;
+  margin:10px 0;
+  color:#000000;
+}
+ 
+#timerOlympic .yycountdown-box .yyc-day{
+  font-size:3.0em;
+  color:#0085C7;
+}
+#timerOlympic .yycountdown-box .yyc-hou{
+  font-size:3.0em;
+  color:#F4C300;
+}
+#timerOlympic .yycountdown-box .yyc-min{
+  font-size:3.0em;
+  color:#009F3D;
+}
+#timerOlympic .yycountdown-box .yyc-sec{
+  font-size:3.0em;
+  color:#DF0024;
+}
+ 
+#timerOlympic .yycountdown-box .yyc-day-text,
+#timerOlympic .yycountdown-box .yyc-hou-text,
+#timerOlympic .yycountdown-box .yyc-min-text,
+#timerOlympic .yycountdown-box .yyc-sec-text{
+  font-size:1.0em;
+}
