@@ -295,4 +295,6 @@ $posts = array_reverse($posts);                  // 配列の中身を逆順に
 
 <text>Hello Hashida2!</text>
 
+<text>Hello Hashida3!</text>
+
 </body>
