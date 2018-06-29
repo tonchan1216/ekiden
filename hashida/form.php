@@ -28,6 +28,5 @@
 	</div>
 	<div>
 			<input type="submit" id="add_button" value="記録を追加">
-			<input type="submit" id="del" name="del" value="del" />
 </form>
 
