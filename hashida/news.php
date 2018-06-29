@@ -45,20 +45,21 @@ function h($s){
 		</div>
 	</header>
 
-<div class="container">
-	<div id="pictures">
+	<div class="container">
+		<div id="pictures">
+		</div>
 	</div>
 
 
-		<div id="footer"></div>
+	<div id="footer"></div>
 
-		<script type="text/javascript" src="js/timer.js"></script>
-		<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
-		<script src="./js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
 
-		<script>
+	<script>
    //ヘッダーとフッターを外部ファイルから読み込み
    $(function() {
    	$("#nav").load("nav.php");
