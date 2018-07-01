@@ -13,10 +13,9 @@ define('PDO_DSN', 'mysql:dbhost=localhost;dbname='.DB_DATABASE);
 
 $num = 123;
 $name_arr = array();
-$min_arr = array();
-$sec_arr = array();
+$time_arr = array();
 $date_arr = array();
-$place_arr = array();
+$place_arr= array();
 
 // CSRF 対策
 session_start();
@@ -42,26 +41,25 @@ function checkToken(){
 class User{
 
   public function store(){
-    global $name_arr,$min_arr,$sec_arr,$date_arr,$place_arr;
+    global $name_arr,$time_arr,$date_arr,$place_arr;
     array_push($name_arr, $this->name);
-    array_push($min_arr, $this->min);
-    array_push($sec_arr, $this->sec);
+    array_push($time_arr, $this->time);
     array_push($date_arr, $this->date);
     array_push($place_arr, $this->place);
   }
   public function show(){
     echo "$this->date";
     echo nl2br("\n");  //<br />タグ(改行タグ)が挿入される。
-    echo "$this->name $this->min $this->sec ($this->place)";
+    echo "$this->name $this->time ($this->place)";
     echo nl2br("\n");  //<br />uグ(改行タグ)が挿入される。
   }
 }
 
-function update($db, $name, $min, $sec, $place, $date){
-  $stmt=$db->prepare("insert into record (name,min,sec,place,date) values (:name,:min,:sec,:place,:date)");
+function update($db, $name, $time, $place, $date){
+  $stmt=$db->prepare("insert into record (name,time,place,date) values (:name,:time,:place,:date)");
 
   $params = array(
-    ':name'=>$name,':min'=>$min,':sec'=>$sec,':place'=>$place,':date'=>$date);
+    ':name'=>$name,':time'=>$time,':place'=>$place,':date'=>$date);
 
   $stmt->execute($params);
 }
@@ -69,11 +67,10 @@ function update($db, $name, $min, $sec, $place, $date){
 
 // DBに情報をINSERT。。。
 function insert($db){
-  $stmt=$db->prepare("insert into record (name,min,sec,place,date) values (:name,:min,:sec,:place,:date)");
+  $stmt=$db->prepare("insert into record (name,time,place,date) values (:name,:time,:place,:date)");
 
-
-  $params1 = array(':name'=>'Boss',':min'=>14,':sec'=>59,':place'=>'Aobadai',':date'=>20180515);
-  $params2 = array(':name'=>'Katoken',':min'=>15,':sec'=>01,':place'=>'Aobadai',':date'=>20180522);
+  $params1 = array(':name'=>'Boss',':time'=>'14:59',':place'=>'Aobadai',':date'=>20180515);
+  $params2 = array(':name'=>'Katoken',':time'=>'15:01',':place'=>'Aobadai',':date'=>20180522);
 
   $stmt->execute($params1);
   $stmt->execute($params2);
@@ -107,4 +104,4 @@ function select($db){
 }
 
 
-?>
+

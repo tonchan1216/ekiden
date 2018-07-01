@@ -74,7 +74,7 @@ function h($s){
 					<?php foreach ($name_arr as $name_arr): ?>
 						<li>
 							<dt><?php echo $date_arr[$s]."<br>\n"; ?></dt>
-							<dd><?php echo $name_arr.': '.$min_arr[$s].':'.$sec_arr[$s].' ('.$place_arr[$s].')'."<br>\n"; ?></dd>
+							<dd><?php echo $name_arr. ':' .$min_arr[$s]. ':' .$sec_arr[$s]. '('.$place_arr[$s].')'."<br>\n"; ?></dd>
 						</li>
 						<?php $s++;  ?>
 					<?php endforeach; ?>
@@ -114,7 +114,6 @@ function h($s){
 
 </body bgcolor="#ffffff" link="#0000ff" vlink="#ff00ff" alink="#ff0000">
 
-</html>
 
 <div></div> <!-- 基本的なブロック要素 -->
 

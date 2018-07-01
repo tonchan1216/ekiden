@@ -1,4 +1,4 @@
-<form action="./update.php" method="post" class="py-3">
+<form action="" method="_POST" class="py-3">
 	<div>
 		<label>日付:</label>
 		<input type="date" name="date">
@@ -9,12 +9,16 @@
 	</div>
 	<div>
 		<label>コース:</label>
-		<select type="text" name="place">
+		<input type="text" name="place">
+
+		<!--
+		<select name="place">
 			<option>青葉台</option>
 			<option>河原</option>
 			<option>城址</option>
 			<option>その他</option>
 		</select>
+	-->
 
 	</div>
 	<div>
@@ -22,8 +26,8 @@
 		<input type="number" name="min" class="min">分
 		<input type="number" name="sec" class="sec">秒
 	</div>
-	<input type="submit" id="add_button" value="記録を追加">
+	<div>
+			<input type="submit" id="add_button" value="記録を追加">
+			<input type="submit" id="del" name="del" value="del" />
 </form>
-
-
 

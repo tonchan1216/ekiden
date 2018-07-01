@@ -16,7 +16,7 @@ $name_arr = array();
 $min_arr = array();
 $sec_arr = array();
 $date_arr = array();
-$place_arr = array();
+$place_arr= array();
 
 // CSRF 対策
 session_start();
@@ -71,7 +71,6 @@ function update($db, $name, $min, $sec, $place, $date){
 function insert($db){
   $stmt=$db->prepare("insert into record (name,min,sec,place,date) values (:name,:min,:sec,:place,:date)");
 
-
   $params1 = array(':name'=>'Boss',':min'=>14,':sec'=>59,':place'=>'Aobadai',':date'=>20180515);
   $params2 = array(':name'=>'Katoken',':min'=>15,':sec'=>01,':place'=>'Aobadai',':date'=>20180522);
 
@@ -107,4 +106,4 @@ function select($db){
 }
 
 
-?>
+

@@ -68,7 +68,7 @@ nav.navbar {
  body {
  	font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
  	background:#E6E6E6;
- 	padding-top: 30px;
+ 	padding-top: 20px;
  }
 
 .colmn {
@@ -91,16 +91,12 @@ h2 {
 	color:#ffffff;
 }
 
-input.min, input.sec{
+input.minutes, input.seconds{
 	width: 70px; 
 }
 
 dt.picdate{
 	font-size:1.15em;
-}
-
-.check-window{
-	margin-top:20px;
 }
 
 /*================================================
