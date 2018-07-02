@@ -74,7 +74,7 @@ function h($s){
 					<?php foreach ($name_arr as $name_arr): ?>
 						<li>
 							<dt><?php echo $date_arr[$s]."<br>\n"; ?></dt>
-							<dd><?php echo $name_arr.': '.$min_arr[$s].':'.$sec_arr[$s].' ('.$place_arr[$s].')'."<br>\n"; ?></dd>
+							<dd><?php echo $name_arr.': '.$min_arr[$s].'分'.$sec_arr[$s].'秒 ('.$place_arr[$s].')'."<br>\n"; ?></dd>
 						</li>
 						<?php $s++;  ?>
 					<?php endforeach; ?>
