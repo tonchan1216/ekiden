@@ -21,6 +21,16 @@ $place_arr = array();
 // CSRF 対策
 session_start();
 
+function order($db){
+   $stmt = $db-> query("select * from record order by date desc");  //全体抽出
+  // $stmt->execute();
+  $users= $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
+  foreach ($users as $user){
+    // $user->show();
+    $user->store();
+  }
+}
+
 function setToken(){
   //  推測されにくい文字列を作ればOK...
   $token = sha1(uniqid(mt_rand(), true));

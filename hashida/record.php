@@ -1,16 +1,15 @@
 <?php
 
 $dataFile = 'bbs.dat';
-include('fetch.php');  
+include('fetch.php');
 
 // エスケープ関数
 function h($s){
 	return htmlspecialchars($s, ENT_QUOTES, 'utf-8');
 }
-
 ?>
 
-<!DOCTYPE html> <!-- ドキュメントタイプの宣言の時に使う -->
+<html> <!-- ドキュメントタイプの宣言の時に使う -->
 
 <head> <!-- ヘッダ情報 -->
 	<meta name ="author" content="tech togics">
@@ -54,36 +53,43 @@ function h($s){
 			</div>
 
 			<div class="col-12 col-md-6 colmn">
-				<h2>&nbsp;投稿一覧(<?php echo count($name_arr); ?>件)</h2>
-				<ul>
-					<?php if (count($name_arr)) : ?>  <!-- $postがあるか：ある -->
-					<?php $s=0;  ?>
-					<?php foreach ($name_arr as $name_arr): ?>
-						<li>
-							<dt><?php echo $date_arr[$s]."<br>\n"; ?></dt>
-							<dd><?php echo $name_arr.': '.$min_arr[$s].'分'.$sec_arr[$s].'秒 ('.$place_arr[$s].')'."<br>\n"; ?></dd>
-						</li>
-						<?php $s++;  ?>
-					<?php endforeach; ?>
-					<?php else : ?>  <!-- $postがあるか：ない -->
-					<li>まだ投稿はありません。</li>
-				<?php endif; ?>
-			</ul>
+				<table>
+					<tr><th>日付</th><th>名前</th><th>コース</th><th>タイム</th></tr>
+					<?php if (count($name_arr)) : ?>
+						<?php $s=0;  ?>
+						<?php foreach ($name_arr as $name_arr): ?>
+							<tr>
+								<td><?php echo $date_arr[$s]; ?></td>
+								<td><?php echo $name_arr; ?></td>
+								<td><?php echo $place_arr[$s]; ?></td>
+								<td><?php echo $min_arr[$s]; ?>分<?php echo $sec_arr[$s]; ?>秒</td>
+							</tr>
+							<?php $s++;  ?>
+						<?php endforeach; ?>
+						<?php else : ?> 
+							<tr>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+							</tr>
+						<?php endif; ?>
+					</table>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
 
 
-<div id="footer"></div>
+		<div id="footer"></div>
 
 
-<script type="text/javascript" src="js/timer.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/timer.js"></script>
+		<script type="text/javascript" src="js/timer.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js" ></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/timer.js"></script>
 
-<script>
+		<script>
    //ヘッダーとフッターを外部ファイルから読み込み
    $(function() {
    	$("#nav").load("nav.php");
@@ -93,5 +99,4 @@ function h($s){
 </script>
 
 </body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000">
-
-
+</html>
